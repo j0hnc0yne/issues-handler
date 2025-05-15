@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: issues-handler
+
+github:
+  baseurl: https://api.github.com
+  token: ${GITHUB_TOKEN}
