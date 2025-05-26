@@ -1,6 +1,6 @@
 
 # Step 1 - Build and unit test
-./gradlew clean build > build.log 2>&1
+./gradlew clean candidate > build.log 2>&1
 
 # Extract version from build.log
 export APP_VERSION=$(grep 'version:' build.log | awk -F'version: ' '{print $2}')
