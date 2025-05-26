@@ -17,4 +17,7 @@ echo "APP_VERSION: $APP_VERSION"
 envsubst < k8s/deployment.yaml | kubectl apply -f -
 
 # Step 5 - Run Integration Tests
+nohup kubectl -n projectcontour port-forward service/envoy 8888:80 &
+export BASE_URL=http://issues-handler.local:8888
 ./gradlew integrationTest
+kill -9 $(ps -ef | grep 'port-forward' | grep -v grep | awk '{print $2}')
