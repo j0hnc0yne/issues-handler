@@ -6,7 +6,6 @@ plugins {
 }
 
 group = 'com.demo'
-version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
@@ -65,4 +64,8 @@ tasks.register('mockServer') {
 			commandLine 'java', '-jar', jar, '--port', '9080', '--root-dir=mocks/wiremock', '--record-mappings'
 		}
 	}
+}
+
+nebulaRelease {
+	releaseBranchPatterns = ['^main$']
 }

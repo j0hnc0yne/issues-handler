@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: issues-handler
-          image: localhost/issues-handler:latest
+          image: localhost/issues-handler:${APP_VERSION}
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -27,7 +27,7 @@ spec:
             - name: GITHUB_TOKEN
               value: "1234"
         - name: issues-mocks
-          image: localhost/issues-mocks:latest
+          image: localhost/issues-mocks:${APP_VERSION}
           imagePullPolicy: Never
           ports:
             - containerPort: 9080
