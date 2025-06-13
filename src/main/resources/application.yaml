@@ -5,3 +5,8 @@ spring:
 github:
   baseurl: https://api.github.com
   token: ${GITHUB_TOKEN}
+
+logging:
+  level:
+    com.demo.issues_handler: DEBUG
+    org.kohsuke.github: DEBUG
