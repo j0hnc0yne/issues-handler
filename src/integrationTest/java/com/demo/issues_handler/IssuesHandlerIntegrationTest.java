@@ -10,10 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
 class IssuesHandlerIntegrationTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(IssuesHandlerIntegrationTest.class);
@@ -38,11 +35,10 @@ class IssuesHandlerIntegrationTest {
                 "total", 8,
                 "labelCounts", Map.of(
                         "bug", 2,
-                        "status/need-investigation", 1,
-                        "status/invalid", 1,
-                        "status/duplicate", 1,
-                        "status/working-as-intended", 1,
-                        "status/under-review", 1
+                        "status/need-investigation", 2,
+                        ":question:need-triage", 1,
+                        "for/user-attention", 2,
+                        "type/enhancement", 4
                 )
         );
         Map response = get(baseUrl + "/issuesdata/reactor/reactor-pool")
@@ -51,11 +47,6 @@ class IssuesHandlerIntegrationTest {
                 .extract()
                 .as(Map.class);
         assertEquals(expected, response);
-                //.body("total", hasSize(greaterThan(0)));
-//                .body("total", equalTo(8))
-//                .body("labelCounts.bug", equalTo(2))
-//                .body("labelCounts", hasKey("status/need-investigation"));
-
     }
 
     @Test

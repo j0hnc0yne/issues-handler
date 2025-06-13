@@ -1,0 +1,10 @@
+{
+    "priority": 11,
+    "request": {
+        "method": "ANY",
+        "urlPathPattern": "/repos/j0hnc0yne/(.*)"
+    },
+    "response": {
+        "proxyBaseUrl": "https://api.github.com"
+    }
+}

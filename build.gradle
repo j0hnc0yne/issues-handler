@@ -61,7 +61,7 @@ tasks.register('mockServer') {
 	doLast {
 		exec {
 			String jar = configurations.mockServer.asPath
-			commandLine 'java', '-jar', jar, '--port', '9080', '--root-dir=mocks/wiremock', '--record-mappings'
+			commandLine 'java', '-jar', jar, '--port', '9080', '--root-dir=mocks/wiremock'//, '--record-mappings'
 		}
 	}
 }
